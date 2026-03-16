@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-Hans">
+	<head>
+		<title>PCB签名工具</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/iframe/pcb-signature.css" />
+	</head>
+	<body>
+		<div class="container">
+			<label style="display: flex; flex-direction: column; gap: 4px; width: 100%">
+				<span>GitHub 仓库链接</span>
+				<input
+					id="repo-url"
+					placeholder="例如：https://github.com/owner/repo"
+					style="flex: 1; padding: 6px"
+				/>
+			</label>
+			<label style="display: flex; flex-direction: column; gap: 4px; width: 100%; margin-top: 8px">
+				<span>作者姓名</span>
+				<input id="author-name" placeholder="例如：colorfire" style="flex: 1; padding: 6px" />
+			</label>
+			<label style="display: flex; flex-direction: column; gap: 4px; width: 100%; margin-top: 8px">
+				<span>版本号</span>
+				<input id="version" placeholder="例如：v1.0.0" style="flex: 1; padding: 6px" />
+			</label>
+			<div class="muted" style="margin-top: 8px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap">
+				<span>开源协议：<span id="license-text">待获取</span></span>
+				<input
+					id="license-override"
+					placeholder="手动填写协议（填写后以文本显示）"
+					style="flex: 1; min-width: 180px; padding: 6px"
+				/>
+			</div>
+			<div class="controls">
+				<label style="display: flex; align-items: center; gap: 4px">
+					<input type="checkbox" id="invert" />
+					<span>反色</span>
+				</label>
+				<label style="display: flex; align-items: center; gap: 4px; margin-left: 8px">
+					<input type="checkbox" id="colorful" checked />
+					<span>彩色</span>
+				</label>
+				<label style="display: flex; align-items: center; gap: 4px; margin-left: 8px">
+					<span>大小</span>
+					<input
+						type="range"
+						id="size-scale"
+						min="0.5"
+						max="3"
+						step="0.1"
+						value="1"
+						style="width: 120px"
+					/>
+				</label>
+			</div>
+			<div class="row" style="margin-top: 8px">
+				<div class="preview-box">
+					<canvas id="preview-canvas" width="270" height="140" style="max-width: 270px; max-height: 140px"></canvas>
+				</div>
+				<button id="insert-signature">生成并插入作者签名</button>
+			</div>
+		</div>
+		<div id="status" style="margin-top: 8px; color: #666; font-size: 13px"></div>
+		<script src="/iframe/pcb-signature.config.js"></script>
+		<script src="/iframe/pcb-signature.github.js"></script>
+		<script src="/iframe/pcb-signature.qr.js"></script>
+		<script src="/iframe/pcb-signature.render.js"></script>
+		<script src="/iframe/pcb-signature.eda.js"></script>
+		<script src="/iframe/pcb-signature.ui.js"></script>
+		<script src="/iframe/pcb-signature.app.js"></script>
+	</body>
+</html>

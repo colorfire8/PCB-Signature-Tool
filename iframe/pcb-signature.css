@@ -1,0 +1,50 @@
+/* Minimal styles for PCB signature tool iframe */
+:root {
+	font-family:
+		system-ui,
+		Segoe UI,
+		Helvetica,
+		Arial;
+}
+
+body {
+	margin: 12px;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: 8px;
+}
+
+.controls {
+	margin-top: 8px;
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.row {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+}
+
+.preview-box {
+	width: 280px;
+	height: 150px;
+	border: 1px solid #ddd;
+	border-radius: 6px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #fafafa;
+}
+
+.muted {
+	font-size: 13px;
+	color: #555;
+}
+
