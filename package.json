@@ -1,10 +1,10 @@
 {
-	"name": "pro-api-sdk",
-	"version": "1.3.2",
-	"description": "嘉立创EDA & EasyEDA 专业版扩展 API 开发工具",
-	"author": "JLCEDA <support@lceda.cn>",
+	"name": "pcb-signature-tool",
+	"version": "1.0.0",
+	"description": "为 PCB 丝印生成并插入作者签名信息（二维码/仓库/版本/协议/致谢/手写签名）",
+	"author": "Colorfire",
 	"license": "Apache-2.0",
-	"homepage": "https://pro.lceda.cn/",
+	"homepage": "https://github.com/colorfire8/PCB-Signature-Tool",
 	"engines": {
 		"node": ">=20.17.0"
 	},

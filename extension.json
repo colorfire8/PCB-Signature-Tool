@@ -2,7 +2,7 @@
 	"name": "pcb-signature-tool",
 	"uuid": "eb7c7743d19145db9111ebc56a803c6f",
 	"displayName": "PCB签名工具",
-	"description": "为PCB丝印生成并插入作者签名信息（二维码/仓库/版本/协议/致谢）",
+	"description": "为PCB丝印生成并插入作者签名信息（多二维码/多仓库链接/手写签名/拖拽预览/版本/协议/致谢）",
 	"version": "1.0.0",
 	"publisher": "Colorfire",
 	"engines": {
@@ -10,11 +10,11 @@
 	},
 	"license": "Apache-2.0",
 	"repository": {
-		"type": "extension-store",
-		"url": ""
+		"type": "git",
+		"url": "https://github.com/colorfire8/PCB-Signature-Tool"
 	},
 	"categories": "PCB",
-	"keywords": ["PCB", "作者", "签名", "qrcode", "项目地址"],
+	"keywords": ["PCB", "作者", "签名", "手写签名", "qrcode", "二维码", "GitHub", "Gitee", "嘉立创", "oshwhub", "项目地址", "丝印"],
 	"images": {
 		"logo": "./images/logo.png"
 	},

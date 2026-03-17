@@ -2,20 +2,25 @@
 (function () {
 	function setStatus(text) {
 		const statusEl = document.getElementById('status');
-		if (statusEl) statusEl.textContent = text || '';
+		if (statusEl)
+			statusEl.textContent = text || '';
 	}
 
 	function clearPreview(previewCanvas) {
-		if (!previewCanvas) return;
+		if (!previewCanvas)
+			return;
 		const ctx = previewCanvas.getContext('2d');
-		if (!ctx) return;
+		if (!ctx)
+			return;
 		ctx.clearRect(0, 0, previewCanvas.width, previewCanvas.height);
 	}
 
 	function drawPreviewFromDataUrl(previewCanvas, dataUrl) {
-		if (!previewCanvas || !dataUrl) return;
+		if (!previewCanvas || !dataUrl)
+			return null;
 		const ctx = previewCanvas.getContext('2d');
-		if (!ctx) return;
+		if (!ctx)
+			return null;
 		const img = new Image();
 		img.onload = () => {
 			ctx.clearRect(0, 0, previewCanvas.width, previewCanvas.height);
@@ -25,8 +30,11 @@
 			const dx = (previewCanvas.width - drawWidth) / 2;
 			const dy = (previewCanvas.height - drawHeight) / 2;
 			ctx.drawImage(img, dx, dy, drawWidth, drawHeight);
+			// stash transform for hit-testing (preview space -> image space)
+			previewCanvas.__pcbSigPreviewTransform = { dx, dy, s, imgW: img.width, imgH: img.height };
 		};
 		img.src = dataUrl;
+		return null;
 	}
 
 	window.PcbSignatureUI = {
@@ -35,4 +43,3 @@
 		drawPreviewFromDataUrl,
 	};
 })();
-

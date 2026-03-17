@@ -9,7 +9,7 @@
 	<body>
 		<div class="container">
 			<label style="display: flex; flex-direction: column; gap: 4px; width: 100%">
-				<span>GitHub 仓库链接</span>
+				<span>GitHub 仓库链接（默认二维码）</span>
 				<input
 					id="repo-url"
 					placeholder="例如：https://github.com/owner/repo"
@@ -17,9 +17,40 @@
 				/>
 			</label>
 			<label style="display: flex; flex-direction: column; gap: 4px; width: 100%; margin-top: 8px">
+				<span>Gitee 仓库链接（可选）</span>
+				<input id="gitee-url" placeholder="例如：https://gitee.com/owner/repo" style="flex: 1; padding: 6px" />
+			</label>
+			<label style="display: flex; flex-direction: column; gap: 4px; width: 100%; margin-top: 8px">
+				<span>嘉立创项目仓库链接（可选）</span>
+				<input id="jlc-url" placeholder="例如：https://oshwhub.com/xxx/yyy" style="flex: 1; padding: 6px" />
+			</label>
+			<label style="display: flex; flex-direction: column; gap: 4px; width: 100%; margin-top: 8px">
 				<span>作者姓名</span>
 				<input id="author-name" placeholder="例如：colorfire" style="flex: 1; padding: 6px" />
 			</label>
+			<div style="margin-top: 8px; width: 100%">
+				<div class="muted" style="margin-bottom: 6px">手写签名（将替换“作者姓名”那一行）</div>
+				<div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap">
+					<label style="display: flex; align-items: center; gap: 4px">
+						<input type="radio" id="sig-mode-none" name="sig-mode" value="none" checked />
+						<span>不使用</span>
+					</label>
+					<label style="display: flex; align-items: center; gap: 4px">
+						<input type="radio" id="sig-mode-draw" name="sig-mode" value="draw" />
+						<span>在线手写</span>
+					</label>
+					<label style="display: flex; align-items: center; gap: 4px">
+						<input type="radio" id="sig-mode-upload" name="sig-mode" value="upload" />
+						<span>上传图片</span>
+					</label>
+					<input id="sig-upload" type="file" accept="image/*" style="display: none" />
+					<button id="sig-clear" type="button" style="padding: 6px 10px">清空签名</button>
+				</div>
+				<div style="margin-top: 6px; border: 1px solid #ddd; border-radius: 6px; padding: 6px; background: #fafafa">
+					<canvas id="sig-canvas" width="420" height="120" style="width: 100%; height: 120px; display: block"></canvas>
+					<div class="muted" style="margin-top: 4px; font-size: 12px">提示：在线手写用鼠标/触控笔绘制；上传图片会自动适配到画布。</div>
+				</div>
+			</div>
 			<label style="display: flex; flex-direction: column; gap: 4px; width: 100%; margin-top: 8px">
 				<span>版本号</span>
 				<input id="version" placeholder="例如：v1.0.0" style="flex: 1; padding: 6px" />
@@ -33,14 +64,36 @@
 				/>
 			</div>
 			<div class="controls">
-				<label style="display: flex; align-items: center; gap: 4px">
-					<input type="checkbox" id="invert" />
-					<span>反色</span>
-				</label>
-				<label style="display: flex; align-items: center; gap: 4px; margin-left: 8px">
-					<input type="checkbox" id="colorful" checked />
-					<span>彩色</span>
-				</label>
+				<div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap">
+					<span class="muted">二维码</span>
+					<label style="display: flex; align-items: center; gap: 4px">
+						<input type="checkbox" id="qr-github" checked />
+						<span>GitHub</span>
+					</label>
+					<label style="display: flex; align-items: center; gap: 4px">
+						<input type="checkbox" id="qr-gitee" />
+						<span>Gitee</span>
+					</label>
+					<label style="display: flex; align-items: center; gap: 4px">
+						<input type="checkbox" id="qr-jlc" />
+						<span>嘉立创</span>
+					</label>
+				</div>
+				<div style="display: flex; align-items: center; gap: 12px">
+					<span class="muted">颜色</span>
+					<label style="display: flex; align-items: center; gap: 4px">
+						<input type="radio" id="color-mode-default" name="color-mode" value="default" checked />
+						<span>默认</span>
+					</label>
+					<label style="display: flex; align-items: center; gap: 4px">
+						<input type="radio" id="color-mode-invert" name="color-mode" value="invert" />
+						<span>反色</span>
+					</label>
+					<label style="display: flex; align-items: center; gap: 4px">
+						<input type="radio" id="color-mode-colorful" name="color-mode" value="colorful" />
+						<span>彩色</span>
+					</label>
+				</div>
 				<label style="display: flex; align-items: center; gap: 4px; margin-left: 8px">
 					<span>大小</span>
 					<input
@@ -68,6 +121,7 @@
 		<script src="/iframe/pcb-signature.render.js"></script>
 		<script src="/iframe/pcb-signature.eda.js"></script>
 		<script src="/iframe/pcb-signature.ui.js"></script>
+		<script src="/iframe/pcb-signature.signature.js"></script>
 		<script src="/iframe/pcb-signature.app.js"></script>
 	</body>
 </html>
